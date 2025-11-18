@@ -171,4 +171,5 @@ const myFavoriteFootballTeam = {
   ],
 };
  
- Object.freeze(myFavoriteFootballTeam);
+Object.freeze(myFavoriteFootballTeam);
+const sport = myFavoriteFootballTeam.sport;
