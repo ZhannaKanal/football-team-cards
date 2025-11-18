@@ -170,9 +170,8 @@ const myFavoriteFootballTeam = {
     },
   ],
 };
- 
-Object.freeze(myFavoriteFootballTeam);
 
+Object.freeze(myFavoriteFootballTeam);
 const { sport, team, year, players } = myFavoriteFootballTeam;
 const { coachName } = myFavoriteFootballTeam.headCoach;
 
@@ -180,7 +179,6 @@ typeOfSport.textContent = sport;
 teamName.textContent = team;
 worldCupYear.textContent = year;
 headCoach.textContent = coachName;
-
 
 const setPlayerCards = (arr = players) => {
   playerCards.innerHTML += arr
@@ -201,11 +199,30 @@ const setPlayerCards = (arr = players) => {
 playersDropdownList.addEventListener("change", (e) => {
   playerCards.innerHTML = "";
 
-
   switch (e.target.value) {
     case "nickname":
       setPlayerCards(players.filter((player) => player.nickname !== null));
-  break;
+      break;
+    case "forward":
+      setPlayerCards(players.filter((player) => player.position === "forward"));
+      break;
+    case "midfielder":
+      setPlayerCards(
+        players.filter((player) => player.position === "midfielder")
+      );
+      break;
+    case "defender":
+      setPlayerCards(
+        players.filter((player) => player.position === "defender")
+      );
+      break;
+    case "goalkeeper":
+      setPlayerCards(
+        players.filter((player) => player.position === "goalkeeper")
+      );
+      break;
+
+default:
+  setPlayerCards();
   }
 });
-
